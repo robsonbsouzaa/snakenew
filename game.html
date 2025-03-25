@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo da Cobrinha</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <div id="game-container">
+    <h1>Jogo da Cobrinha</h1>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <p>Pontuação: <span id="score">0</span></p>
+    <button id="start-game">Começar Jogo</button>
+    <button id="ranking">Ver Ranking</button>
+    <button id="logout">Sair</button>
+    <p>Utlize W A S D para controlar  </p>
+  </div>
+
+  <script type="module">
+    // Redireciona para a tela de ranking
+    document.getElementById('ranking').addEventListener('click', () => {
+      window.location.href = 'ranking.html';
+    });
+
+    // Lida com o logout do usuário
+    document.getElementById('logout').addEventListener('click', async () => {
+      const { auth } = await import('./firebase.js'); // Garantir que o auth seja importado corretamente
+      await auth.signOut();
+      window.location.href = 'index.html'; // Redireciona para a tela de login
+    });
+  </script>
+</body>
+</html>

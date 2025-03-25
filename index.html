@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Jogo da Cobrinha</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="auth.js"></script>
+</head>
+<body>
+  <div id="login-container">
+    <h2>Jogo da Cobrinha - Login</h2>
+    <div id="auth-options">
+      <button id="show-login">Já tenho uma conta</button>
+      <button id="show-register">Criar nova conta</button>
+    </div>
+    
+    <form id="login-form" class="auth-form" style="display: none;">
+      <h3>Entrar</h3>
+      <input type="email" id="login-email" placeholder="Email" required>
+      <input type="password" id="login-password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+    
+    <form id="register-form" class="auth-form" style="display: none;">
+      <h3>Criar Conta</h3>
+      <input type="text" id="register-username" placeholder="Nome" required>
+      <input type="email" id="register-email" placeholder="Email" required>
+      <input type="password" id="register-password" placeholder="Senha" required>
+      <button type="submit">Criar Conta</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById('show-login').addEventListener('click', () => {
+      document.getElementById('login-form').style.display = 'block';
+      document.getElementById('register-form').style.display = 'none';
+    });
+    
+    document.getElementById('show-register').addEventListener('click', () => {
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('register-form').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
