@@ -10,25 +10,38 @@
 <body>
   <div id="game-container">
     <h1>Jogo da Cobrinha</h1>
+    
+    <!-- Instruções -->
+    <p>Use as teclas <b>WASD</b> para controlar a cobra.</p>
+    <p>Pressione <b>Espaço</b> para perder automaticamente.</p>
+
+    <!-- Contagem regressiva -->
+    <p id="countdown" style="font-size: 24px; font-weight: bold; color: red; display: none;"></p>
+
+    <!-- Canvas do jogo -->
     <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <!-- Exibição da pontuação -->
     <p>Pontuação: <span id="score">0</span></p>
+
+    <!-- Botões -->
     <button id="start-game">Começar Jogo</button>
     <button id="ranking">Ver Ranking</button>
     <button id="logout">Sair</button>
-    <p>Utlize W A S D para controlar  </p>
   </div>
 
-  <script type="module">
-    // Redireciona para a tela de ranking
+  <script>
+    // Redirecionar para o ranking
     document.getElementById('ranking').addEventListener('click', () => {
       window.location.href = 'ranking.html';
     });
 
-    // Lida com o logout do usuário
+    // Logout (Firebase Auth)
     document.getElementById('logout').addEventListener('click', async () => {
-      const { auth } = await import('./firebase.js'); // Garantir que o auth seja importado corretamente
+      const { auth } = await import('./firebase.js');
       await auth.signOut();
-      window.location.href = 'index.html'; // Redireciona para a tela de login
+      alert('Você saiu da conta.');
+      window.location.href = 'index.html';
     });
   </script>
 </body>
