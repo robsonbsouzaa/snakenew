@@ -44,14 +44,14 @@
       window.location.href = 'index.html';
     });
 
-    // Desabilitar botão de começar jogo por 10 segundos
+    // Desabilitar botão enquanto o jogo estiver rodando
     document.getElementById('start-game').addEventListener('click', () => {
       const startButton = document.getElementById('start-game');
-      startButton.disabled = true;
-      setTimeout(() => {
-        startButton.disabled = false;
-      }, 10000); // 10 segundos
+      startButton.disabled = true; // Desativa o botão enquanto o jogo roda
+
+      // O botão será reativado pelo game.js quando o jogador perder
     });
+
   </script>
 </body>
 </html>
